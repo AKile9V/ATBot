@@ -39,6 +39,7 @@ def split_query(message, content):
             except IndexError:
                 return [split[2], split[3], content, WOW_REGION]
 
+
 def remove_from_json(filepath, json_list, key, value):
     with open(filepath, 'r', encoding="utf-8") as fp:
         data = json.load(fp)
@@ -50,23 +51,26 @@ def remove_from_json(filepath, json_list, key, value):
     with open(filepath, 'w', encoding="utf-8") as fp:
         json.dump(data, fp)
 
+
 def add_to_json(filepath, json_list, key, value):
     with open(filepath, 'r', encoding="utf-8") as fp:
         data = json.load(fp)
 
-    member_dict = {str(key) : str(value)}
+    member_dict = {str(key): str(value)}
     data[json_list].append(member_dict)
 
     with open(filepath, 'w', encoding="utf-8") as fp:
         json.dump(data, fp)
 
+
 def append_to_json(filepath, json_list, json_obj):
     return
-            
+
+
 def only_officers(ctx):
     print(ctx.author.top_role.name)
     print(ctx.author.top_role.permissions.administrator)
     print(str(ctx.author.top_role.name) == "Officer")
-    if(not (ctx.author.top_role.permissions.administrator or str(ctx.author.top_role.name) == "Officer")):
+    if (not (ctx.author.top_role.permissions.administrator or str(ctx.author.top_role.name) == "Officer")):
         print("?")
         return 0

@@ -17,23 +17,23 @@ async def get_roster():
     try:
         async with aiohttp.ClientSession() as client:
             async with client.get(
-                        api_path, headers={"Authorization": "Bearer %s" % (access_token)}
-                    ) as api_response:
+                api_path, headers={
+                    "Authorization": "Bearer %s" % (access_token)}
+            ) as api_response:
 
-                        if api_response.status == 200:
-                            api_json = await api_response.json()
-                            return api_json, api_response
+                if api_response.status == 200:
+                    api_json = await api_response.json()
+                    return api_json, api_response
 
-                        elif api_response.status == 404:
-                            print("Error: Character not found")
-                            return "not_found"
+                elif api_response.status == 404:
+                    print("Error: Character not found")
+                    return "not_found"
 
     except Exception as error:
         # Error receiving game data:
         print(error)
         print("Error: Connection error occurred when retrieving game data.")
         return "connection_error"
-
 
 
 async def get_data(region, access_token, **kwargs):
@@ -56,7 +56,7 @@ async def get_data(region, access_token, **kwargs):
                         "%s/data/wow/token/?namespace=dynamic-%s&access_token=%s"
                         % (base_api_path, region, access_token)
                     )
-#https://eu.api.blizzard.com/profile/wow/character/kazzak/bllufy/quests?namespace=profile-eu&locale=en_EU&access_token=EUtBBsE3ZXURKYnTExLYd1DuTqoOsnqGWV
+# https://eu.api.blizzard.com/profile/wow/character/kazzak/bllufy/quests?namespace=profile-eu&locale=en_EU&access_token=EUtBBsE3ZXURKYnTExLYd1DuTqoOsnqGWV
                 else:
                     api_path = (
                         "%s/profile/wow/character/%s/%s?fields=%s&locale=%s&access_token=%s"
@@ -71,7 +71,8 @@ async def get_data(region, access_token, **kwargs):
                     )
 
                 async with client.get(
-                    api_path, headers={"Authorization": "Bearer %s" % (access_token)}
+                    api_path, headers={
+                        "Authorization": "Bearer %s" % (access_token)}
                 ) as api_response:
 
                     if api_response.status == 200:
@@ -443,65 +444,63 @@ async def character_info(name, realm, query, region):
     info = await get_data(region, access_token, name=name, realm=realm, field="items")
     if info == "not_found" or info == "connection_error" or info == "credential_error":
         return info
-    
-        
 
     # If the data returned isn't an error string assume it found a character.
     else:
-        #try:
-            print(info)
-            class_data = class_details(info["class"])
-            print(class_data)
-            faction_name = faction_details(info["faction"])
-            print(faction_name)   
-            # Gathers achievement data from the achievements API.
-            # achievement_data = await get_data(
-            #     region, access_token, name=name, realm=realm, field="achievements"
-            # )
-            # achievements = character_achievements(achievement_data, faction_name)
+        # try:
+        print(info)
+        class_data = class_details(info["class"])
+        print(class_data)
+        faction_name = faction_details(info["faction"])
+        print(faction_name)
+        # Gathers achievement data from the achievements API.
+        # achievement_data = await get_data(
+        #     region, access_token, name=name, realm=realm, field="achievements"
+        # )
+        # achievements = character_achievements(achievement_data, faction_name)
 
-            # Gathers talent data
-            ##talent_data = await get_data(
-            #    region, access_token, name=name, realm=realm, field="talents"
-            #)
-            #talents = character_talents(talent_data)
+        # Gathers talent data
+        # talent_data = await get_data(
+        #    region, access_token, name=name, realm=realm, field="talents"
+        # )
+        # talents = character_talents(talent_data)
 
-            # Builds a character sheet depending on the function argument.
-            progression_data = await get_data(
-                region, access_token, name=name, realm=realm, field="progression"
-            )
-            progression = character_progression(progression_data)
-            print(progression)   
-            pve_character_sheet = {
-                "name": info["name"],
-                "level": info["level"],
-                "realm": info["realm"],
-                "faction": faction_name,
-                #"spec": talents["active_spec"],
-                "battlegroup": info["battlegroup"],
-                "class_colour": class_data["colour"],
-                "class_type": class_data["name"],
-                "armory":"https://worldofwarcraft.blizzard.com/en-gb/character/%s/%s/%s"
-                % (region, realm, name),
-                "thumb": info["thumbnail"],
-                "ilvl": info["items"]["averageItemLevelEquipped"],
-                # "keystone_season_master": achievements["keystone_season_master"],
-                # "keystone_season_conqueror": achievements[
-                #     "keystone_season_conqueror"
-                # ],
-                #"ud_feat": achievements["ud_feat"],
-                "uldir": progression["uldir"],
-                #"bod_feat": achievements["bod_feat"],
-                "battle_of_dazaralor": progression["battle_of_dazaralor"],
-                #"cos_feat": achievements["cos_feat"],
-                "crucible_of_storms": progression["crucible_of_storms"],
-                #"tep_feat": achievements["tep_feat"],
-                "the_eternal_palace": progression["the_eternal_palace"],
-                "nyalotha": progression["nyalotha"],
-                #"nya_feat": achievements["nya_feat"]
-            }
+        # Builds a character sheet depending on the function argument.
+        progression_data = await get_data(
+            region, access_token, name=name, realm=realm, field="progression"
+        )
+        progression = character_progression(progression_data)
+        print(progression)
+        pve_character_sheet = {
+            "name": info["name"],
+            "level": info["level"],
+            "realm": info["realm"],
+            "faction": faction_name,
+            # "spec": talents["active_spec"],
+            "battlegroup": info["battlegroup"],
+            "class_colour": class_data["colour"],
+            "class_type": class_data["name"],
+            "armory": "https://worldofwarcraft.blizzard.com/en-gb/character/%s/%s/%s"
+            % (region, realm, name),
+            "thumb": info["thumbnail"],
+            "ilvl": info["items"]["averageItemLevelEquipped"],
+            # "keystone_season_master": achievements["keystone_season_master"],
+            # "keystone_season_conqueror": achievements[
+            #     "keystone_season_conqueror"
+            # ],
+            # "ud_feat": achievements["ud_feat"],
+            "uldir": progression["uldir"],
+            # "bod_feat": achievements["bod_feat"],
+            "battle_of_dazaralor": progression["battle_of_dazaralor"],
+            # "cos_feat": achievements["cos_feat"],
+            "crucible_of_storms": progression["crucible_of_storms"],
+            # "tep_feat": achievements["tep_feat"],
+            "the_eternal_palace": progression["the_eternal_palace"],
+            "nyalotha": progression["nyalotha"],
+            # "nya_feat": achievements["nya_feat"]
+        }
 
-            return pve_character_sheet
+        return pve_character_sheet
 
         # except Exception as error:
         #     # Catches any generic errors during character sheet generation,
@@ -522,4 +521,3 @@ async def wow_token_price(region):
 
     # Formats the token price before returning
     return "{:,}".format(info["price"] / 10000)
-

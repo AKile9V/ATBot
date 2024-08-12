@@ -1,8 +1,9 @@
-from Util import only_officers, remove_from_json, add_to_json
+from Util import remove_from_json, add_to_json
 from discord.ext import commands
 from discord import Streaming as st
 import discord
 import json
+
 
 class Streaming(commands.Cog):
 
@@ -36,16 +37,17 @@ class Streaming(commands.Cog):
             if str(member) == streamer_data["name"]:
                 print("found ya")
                 return
-            
+
         add_to_json("Streamers.json", "streamers", "name", member)
-        await message_cog.make_embed("Dodat si na listu streamer-a!", "", "", discord.Color.dark_green(), delete_after_time = 15)
+        await message_cog.make_embed("Dodat si na listu streamer-a!", "", "", discord.Color.dark_green(), delete_after_time=15)
 
     @commands.command()
     async def removestream(self, ctx):
         message_cog = self.client.get_cog("Messages")
         member = ctx.author.nick
         remove_from_json("Streamers.json", "streamers", "name", member)
-        await message_cog.make_embed("Skinut si sa liste streamer-a!", "", "", discord.Color.dark_green(), delete_after_time = 15)
+        await message_cog.make_embed("Skinut si sa liste streamer-a!", "", "", discord.Color.dark_green(), delete_after_time=15)
+
 
 async def setup(client):
     await client.add_cog(Streaming(client))
