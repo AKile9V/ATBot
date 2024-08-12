@@ -1,123 +1,122 @@
 [
-    {
-        "question" : "Zašto ne verujem hilerima koji ne koriste VuhDo?",
-        "answer" : "Previse su GRIDi"
-    },
-    {
-        "question" : "Šta kaže raid leader kad ga ne poštujemo?",
-        "answer" : "Kako možete, pa sve sam vam poDARIO."
-    },
-    {
-        "question" : "Šta radi pas koji ne može da zvoni?",
-        "answer" : "Kuca"
-    },
-    {
-        "question" : "Kako se zove Raspodi koji switcha u shamana?",
-        "answer" : "Lustpodi"
-    },
-    {
-        "question" : "Zašto je Indiche opet umro?",
-        "answer" : "Nije dovoljno mario"
-    },
-    {
-        "question" : "Zašto je Priroda stavila 10.000 oil-ova na aukciju?",
-        "answer" : "Jer joj ide dobro proDAJA"
-    },
-    {
-        "question" : "Šta Core jebači kažu kad paladin napravi lošu foru?",
-        "answer" : "DisiBOOraz"
-    },
-    {
-        "question" : "How do our raid leaders enter a home when there's no doorbell?",
-        "answer" : "They Knox"
-    },
-    {
-        "question" : "ZaŠto Iveka nema u igri?",
-        "answer" : "Jer je dobio shaBAN"
-    },
-    {
-        "question" : "Šta se desi kad ATB raid-uje Castle Nathriju?",
-        "answer" : "Mnogo se inerviraju"
-    },
-    {
-        "question" : "Zašto Lastwill kasni na pivo s Ivekom?",
-        "answer" : "Jer je još uvek domek"
-    },
-    {
-        "question" : "Koja je razlika između Indiche-a i Darija?",
-        "answer" : "Ne znam, al' zajedno prave dar mar"
-    },
-    {
-        "question" : "Šta raideri najviše vole da jedu dok su pod cooldownima?",
-        "answer" : "GULbASH"
-    },
-    {
-        "question" : "Zašto ne možeš nikada verovati holy paladinu?",
-        "answer" : "Jer uvek Bluffy-ra"
-    },
-    {
-        "question" : "Gde idu druidi ljubavnici kad žele da gledaju film?",
-        "answer" : "U foKINO"
-    },
-    {
-        "question" : "Šta dečko druid poklanja ženi druidu za godišnjicu?",
-        "answer" : "Izlet u spasa njim"
-    },
-    {
-        "question" : "Šta je druid dečko uradio kad je uhvatio svoju devojku da ga vara?",
-        "answer" : "Ja sam čuo dajana pustio"
-    },
-    {
-        "question" : "Zašto su druidi promenili covenant?",
-        "answer" : "Jer je dobar venTIER za to"
-    },
-    {
-        "question" : "Na kojoj strani sveta idemo da bismo uzeli food buff?",
-        "answer" : "Pa fEAST!"
-    },
-    {
-        "question" : "Kako se zove kad pišes eseje o svojim parse-evima?",
-        "answer" : "Blog"
-    },
-    {
-        "question" : "Šta kaže dractyr kad želi da pokaže svog ljubimca?",
-        "answer" : "Evo, ker"
-    },
-    {
-        "question" : "Kako se zove hrvatski Drato?",
-        "answer" : "Drito"
-    },
-    {
-        "question" : "Zašto ljudi iz sela imaju loš UI?",
-        "answer" : "Ne koriste atroCITY"
-    },
-    {
-        "question" : "ZaŠto Death Knight-ovi igraju dobro table top rpg-eve",
-        "answer" : "Jer uvek igraju DnD"
-    },
-    {
-        "question" : "Kako bi zvučao web-site napravljen za ATB",
-        "answer" : "www.dar.io"
-    },
-    {
-        "question" : "Koje je omiljeno voće feral druida?",
-        "answer" : "Bebanana"
-    },
-    {
-        "question" : "Kako se zove disc priest kad se vrati sa mora?",
-        "answer" : "Melatoninija"
-    },
-    {
-        "question" : "Kako se zove oficir evoker?",
-        "answer" : "Augile"
-    },
-    {
-        "question" : "Sta kaze Dario nasem blood DK-u kad ne mrda bossa na vreme?",
-        "answer" : "Zasto si toliko aKILAV"
-    },
-    {
-        "question" : "Koji je Tomijev omiljeni pravac u muzici?",
-        "answer" : "New mAGE"
-    }
-
+  {
+    "question": "Zašto ne verujem hilerima koji ne koriste VuhDo?",
+    "answer": "Previse su GRIDi"
+  },
+  {
+    "question": "Šta kaže raid leader kad ga ne poštujemo?",
+    "answer": "Kako možete, pa sve sam vam poDARIO."
+  },
+  {
+    "question": "Šta radi pas koji ne može da zvoni?",
+    "answer": "Kuca"
+  },
+  {
+    "question": "Kako se zove Raspodi koji switcha u shamana?",
+    "answer": "Lustpodi"
+  },
+  {
+    "question": "Zašto je Indiche opet umro?",
+    "answer": "Nije dovoljno mario"
+  },
+  {
+    "question": "Zašto je Priroda stavila 10.000 oil-ova na aukciju?",
+    "answer": "Jer joj ide dobro proDAJA"
+  },
+  {
+    "question": "Šta Core jebači kažu kad paladin napravi lošu foru?",
+    "answer": "DisiBOOraz"
+  },
+  {
+    "question": "How do our raid leaders enter a home when there's no doorbell?",
+    "answer": "They Knox"
+  },
+  {
+    "question": "ZaŠto Iveka nema u igri?",
+    "answer": "Jer je dobio shaBAN"
+  },
+  {
+    "question": "Šta se desi kad ATB raid-uje Castle Nathriju?",
+    "answer": "Mnogo se inerviraju"
+  },
+  {
+    "question": "Zašto Lastwill kasni na pivo s Ivekom?",
+    "answer": "Jer je još uvek domek"
+  },
+  {
+    "question": "Koja je razlika između Indiche-a i Darija?",
+    "answer": "Ne znam, al' zajedno prave dar mar"
+  },
+  {
+    "question": "Šta raideri najviše vole da jedu dok su pod cooldownima?",
+    "answer": "GULbASH"
+  },
+  {
+    "question": "Zašto ne možeš nikada verovati holy paladinu?",
+    "answer": "Jer uvek Bluffy-ra"
+  },
+  {
+    "question": "Gde idu druidi ljubavnici kad žele da gledaju film?",
+    "answer": "U foKINO"
+  },
+  {
+    "question": "Šta dečko druid poklanja ženi druidu za godišnjicu?",
+    "answer": "Izlet u spasa njim"
+  },
+  {
+    "question": "Šta je druid dečko uradio kad je uhvatio svoju devojku da ga vara?",
+    "answer": "Ja sam čuo dajana pustio"
+  },
+  {
+    "question": "Zašto su druidi promenili covenant?",
+    "answer": "Jer je dobar venTIER za to"
+  },
+  {
+    "question": "Na kojoj strani sveta idemo da bismo uzeli food buff?",
+    "answer": "Pa fEAST!"
+  },
+  {
+    "question": "Kako se zove kad pišes eseje o svojim parse-evima?",
+    "answer": "Blog"
+  },
+  {
+    "question": "Šta kaže dractyr kad želi da pokaže svog ljubimca?",
+    "answer": "Evo, ker"
+  },
+  {
+    "question": "Kako se zove hrvatski Drato?",
+    "answer": "Drito"
+  },
+  {
+    "question": "Zašto ljudi iz sela imaju loš UI?",
+    "answer": "Ne koriste atroCITY"
+  },
+  {
+    "question": "ZaŠto Death Knight-ovi igraju dobro table top rpg-eve",
+    "answer": "Jer uvek igraju DnD"
+  },
+  {
+    "question": "Kako bi zvučao web-site napravljen za ATB",
+    "answer": "www.dar.io"
+  },
+  {
+    "question": "Koje je omiljeno voće feral druida?",
+    "answer": "Bebanana"
+  },
+  {
+    "question": "Kako se zove disc priest kad se vrati sa mora?",
+    "answer": "Melatoninija"
+  },
+  {
+    "question": "Kako se zove oficir evoker?",
+    "answer": "Augile"
+  },
+  {
+    "question": "Sta kaze Dario nasem blood DK-u kad ne mrda bossa na vreme?",
+    "answer": "Zasto si toliko aKILAV"
+  },
+  {
+    "question": "Koji je Tomijev omiljeni pravac u muzici?",
+    "answer": "New mAGE"
+  }
 ]
