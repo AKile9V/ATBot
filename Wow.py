@@ -34,6 +34,36 @@ async def get_roster():
         print(error)
         print("Error: Connection error occurred when retrieving game data.")
         return "connection_error"
+    
+async def get_character_guild(realm, character_name):
+
+    access_token = await get_access_token()
+
+    if access_token == "credential_error":
+        return access_token
+
+    api_path = "https://eu.api.blizzard.com/profile/wow/character/{}/{}?namespace=profile-eu&locale=en_EU".format(realm, character_name)
+
+    try:
+        async with aiohttp.ClientSession() as client:
+            async with client.get(
+                api_path, headers={
+                    "Authorization": "Bearer %s" % (access_token)}
+            ) as api_response:
+
+                if api_response.status == 200:
+                    api_json = await api_response.json()
+                    return api_json["guild"]["id"]
+
+                elif api_response.status == 404:
+                    print("Error: Character not found")
+                    return "not_found"
+
+    except Exception as error:
+        # Error receiving game data:
+        print(error)
+        print("Error: Connection error occurred when retrieving game data.")
+        return "connection_error"
 
 
 async def get_data(region, access_token, **kwargs):

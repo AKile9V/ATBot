@@ -52,11 +52,10 @@ def remove_from_json(filepath, json_list, key, value):
         json.dump(data, fp)
 
 
-def add_to_json(filepath, json_list, key, value):
+def add_to_json(filepath, json_list, member_dict):
     with open(filepath, 'r', encoding="utf-8") as fp:
         data = json.load(fp)
 
-    member_dict = {str(key): str(value)}
     data[json_list].append(member_dict)
 
     with open(filepath, 'w', encoding="utf-8") as fp:

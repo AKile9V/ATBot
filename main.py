@@ -11,12 +11,13 @@ intents.message_content = True
 
 client = commands.Bot(command_prefix='#', intents=intents)
 
-
 @client.event
 async def on_ready():
     print("I'm here!")
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.competing, name='the Hall of Fame'))
-
+    timed_cog = client.cogs.get("Timed")
+    await timed_cog.player_guild_rank_check.start()
+    print("?")
 
 async def load_client_extensions():
     # for filename in os.listdir('./GreenBot/cogs'):
@@ -25,7 +26,6 @@ async def load_client_extensions():
     for filename in os.listdir(cogsPth):
         if filename.endswith('.py'):
             await client.load_extension("cogs." + filename[:-3])
-
 
 async def main():
     async with client:

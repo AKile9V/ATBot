@@ -1,6 +1,7 @@
 from Util import remove_from_json, add_to_json
 from discord.ext import commands
 from discord import Streaming as st
+from objectIds import regular_bot_channel
 import discord
 import json
 
@@ -20,11 +21,11 @@ class Streaming(commands.Cog):
             if str(before.nick) == streamer_data["name"]:
                 found = True
                 break
-        if before.activity == after.activity and not found:
+        if before.activity == after.activity or not found:
             return
-        # embed_title, field_name, field_value, color, message = ""
+        
         if isinstance(after.activity, st):
-            await message_cog.make_embed(str(after.nick) + " je počeo da strima!", "", str(after.activity.url), discord.Color.dark_green())
+            await message_cog.make_embed(str(after.nick) + " je počeo da strima!", "", str(after.activity.url), discord.Color.dark_green(), send_channel = regular_bot_channel)
         return
 
     @commands.command()
@@ -35,18 +36,17 @@ class Streaming(commands.Cog):
             data = json.load(fp)
         for streamer_data in data["streamers"]:
             if str(member) == streamer_data["name"]:
-                print("found ya")
                 return
 
-        add_to_json("Streamers.json", "streamers", "name", member)
-        await message_cog.make_embed("Dodat si na listu streamer-a!", "", "", discord.Color.dark_green(), delete_after_time=15)
+        add_to_json("Streamers.json", "streamers", {"name" : member})
+        await message_cog.make_embed("Dodat si na listu streamer-a!", "", "", discord.Color.dark_green(), delete_after_time=15, send_channel = regular_bot_channel)
 
     @commands.command()
     async def removestream(self, ctx):
         message_cog = self.client.get_cog("Messages")
         member = ctx.author.nick
         remove_from_json("Streamers.json", "streamers", "name", member)
-        await message_cog.make_embed("Skinut si sa liste streamer-a!", "", "", discord.Color.dark_green(), delete_after_time=15)
+        await message_cog.make_embed("Skinut si sa liste streamer-a!", "", "", discord.Color.dark_green(), delete_after_time=15, send_channel = regular_bot_channel)
 
 
 async def setup(client):
