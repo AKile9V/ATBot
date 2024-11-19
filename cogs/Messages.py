@@ -18,13 +18,17 @@ class Messages(commands.Cog):
         self.client = client
 
     async def charinfo(self, url_path, author):
-        head_url, url_name = os.path.split(url_path.path)
+        full_url_path = url_path.path
+        if full_url_path[-1] == '/':
+            full_url_path = full_url_path[:-1]
+        head_url, url_name = os.path.split(full_url_path)
+        
         if await self.check_rank(url_name, author):
             return
         realm = os.path.split(head_url)
         user_guild_id = await get_character_guild(realm[1], url_name)
         if (user_guild_id == guild_id):
-            add_to_json("TemporaryAlbinos.json", "temp_albinos",  {"url" : url_path.path , "author" : author.id})
+            add_to_json("TemporaryAlbinos.json", "temp_albinos",  {"url" : full_url_path , "author" : author.id})
             await self.send_dm_embed(author, warning_message, "", in_guild_but_slow_message, discord.Color.orange())
             member_in_server = await self.client.get_guild(test_guild).fetch_member(author.id)
             await member_in_server.edit(roles=[get_role_by_name(self.client.get_guild(test_guild), "Albino Frend")])
